@@ -11,7 +11,7 @@ import Question from '../Question';
 const Quizes = () => {
 
     const [authUser] = useAuthState(auth);
-    const [dbUser, isLoading] = useDBUser(authUser?.email);
+    const [dbUser, isLoading, refetch] = useDBUser(authUser?.email);
 
     const [questions, setQuestions] = useState(null);
     const [examStart, setExamStart] = useState(false);
@@ -76,16 +76,29 @@ const Quizes = () => {
 
     //set the point when marks is 80%
     useEffect(() => {
-        setPoints(true);
-    }, [(marks / (questions?.length) * 100) >= 80])
+        if ((marks / (questions?.length) * 100) >= 80) {
+            setPoints(true);
+        }
+    }, [marks])
 
 
     //update user profile with bonus points   
     const updateProfileWithPoints = () => {
-        console.log('Points updated');
+        const userPoints = dbUser.points || 0;
+        const points = { points: userPoints + 5 };
+
+        fetch(`http://localhost:5000/create-user/${authUser.email}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(points)
+        }).then(res => res.json()).then(data => {
+            console.log(data);
+            refetch();
+        })
     }
-
-
 
     //handle submit answer
     const handlePaperSubmit = (e) => {

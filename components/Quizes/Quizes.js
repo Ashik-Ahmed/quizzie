@@ -95,7 +95,6 @@ const Quizes = () => {
             },
             body: JSON.stringify(points)
         }).then(res => res.json()).then(data => {
-            console.log(data);
             refetch();
         })
     }
@@ -126,8 +125,7 @@ const Quizes = () => {
             },
             body: JSON.stringify(result)
         }).then(res => res.json()).then(data => {
-            console.log(data);
-            if (points) {
+            if (data.insertedId && points) {
                 updateProfileWithPoints();
             }
         })

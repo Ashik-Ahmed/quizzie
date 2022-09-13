@@ -40,8 +40,8 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
-                    <li><a onClick={() => router.push('/takeExam')}>Take Exam</a></li>
-                    <li><a>Dashboard</a></li>
+                    <li><button onClick={() => router.push('/takeExam')}>Take Exam</button></li>
+                    <li><button onClick={() => router.push('/dashboard')}>Dashboard</button></li>
                 </ul>
             </div>
             <div className="dropdown dropdown-end">

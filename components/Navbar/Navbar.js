@@ -23,7 +23,6 @@ const Navbar = () => {
         return <Loading />
     }
 
-
     return (
         <div className="navbar flex justify-around bg-indigo-400">
             <div className="navbar-start ">
@@ -35,6 +34,7 @@ const Navbar = () => {
                         <li><button onClick={() => router.push('/takeExam')}>Take Exam</button></li>
                         <li><button onClick={() => router.push('/dashboard')}>Dashboard</button></li>
                         <li><button onClick={() => router.push('/set-question')}>Set Question</button></li>
+                        <li><button onClick={() => router.push('/contact-us')}>Contact Us</button></li>
                     </ul>
                 </div>
                 <a onClick={() => router.push('/')} className="btn btn-ghost normal-case text-xl text-white font-bold italic">Quizzie</a>
@@ -44,6 +44,7 @@ const Navbar = () => {
                     <li><button onClick={() => router.push('/takeExam')}>Take Exam</button></li>
                     <li><button onClick={() => router.push('/dashboard')}>Dashboard</button></li>
                     <li><button onClick={() => router.push('/set-question')}>Set Question</button></li>
+                    <li><button onClick={() => router.push('/contact-us')}>Contact Us</button></li>
                 </ul>
             </div>
             <div className="dropdown dropdown-end">
@@ -52,11 +53,11 @@ const Navbar = () => {
                         <img src="https://placeimg.com/80/80/people" />
                     </div>
                 </label>
-                <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 font-bold">
                     {authUser ?
                         <>
-                            <li><button onClick={() => router.push('/profile')}>Profile - {authUser.displayName || authUser.email}</button></li>
-                            <li><button>Points: {dbUser?.points || 0}</button></li>
+                            <li><button>Profile - {authUser.displayName || authUser.email}</button></li>
+                            <li><button className='text-primary'>Points: {dbUser?.points || 0}</button></li>
                             <li><button onClick={() => router.push('/dashboard')}>Dashboard</button></li>
                             <li><button onClick={handleSignout}>Logout</button></li>
                         </>

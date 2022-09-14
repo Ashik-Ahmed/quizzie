@@ -3,6 +3,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { QueryClient, QueryClientProvider } from 'react-query';
 import React from 'react';
+import DefaultLayout from '../DefaultLayout/DefaultLayout';
 
 function MyApp({ Component, pageProps }) {
 
@@ -10,7 +11,9 @@ function MyApp({ Component, pageProps }) {
 
   return <>
     <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} />
+      <DefaultLayout>
+        <Component {...pageProps} />
+      </DefaultLayout>
     </QueryClientProvider>
     <ToastContainer
       position="top-right"

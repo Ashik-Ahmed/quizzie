@@ -10,7 +10,7 @@ const Question = ({ qsn, handleSelect, index }) => {
 
     return (
         <div className='card'>
-            <div className='card-body w-2/3 mx-auto rounded-xl shadow-2xl bg-gray-100 mb-8'>
+            <div className='card-body w-2/3 mx-auto bg-gray-100'>
                 <h4 className='text-lg font-bold'>{index + 1}. {question}</h4>
                 <div className='grid grid-cols-4 gap-4'>
                     {

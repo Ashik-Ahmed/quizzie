@@ -14,6 +14,7 @@ import DefaultLayout from '../DefaultLayout/DefaultLayout';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import Loading from '../components/Loading/Loading';
+import usePersonalResult from '../hooks/usePersonalResult';
 
 ChartJS.register(
     CategoryScale,
@@ -31,98 +32,87 @@ export const options = {
         legend: {
             position: 'top',
         },
-        title: {
-            display: true,
-            text: 'Chart.js Line Chart',
-        },
-        height: '400px',
-        width: '40vw'
+        // title: {
+        //     display: true,
+        //     text: 'Chart.js Line Chart',
+        // },
     },
+    scales: {
+        y: {
+            beginAtZero: true,
+        }
+    }
 };
-
-
-// export const data = {
-//     labels,
-//     datasets: [
-//         {
-//             label: 'Dataset 1',
-//             // data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-//             data: [3, 5, 7, 4, 4, 9, 7, 5, 6, 8],
-//             borderColor: 'rgb(255, 99, 132)',
-//             backgroundColor: 'rgba(255, 99, 132, 0.5)',
-//         },
-//         {
-//             label: 'Dataset 2',
-//             data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-//             borderColor: 'rgb(53, 162, 235)',
-//             backgroundColor: 'rgba(53, 162, 235, 0.5)',
-//         },
-//     ],
-// };
 
 const dashboard = () => {
 
     const [authUser, loading] = useAuthState(auth);
-    const [result, setResult] = useState([]);
+    const [gkResult, setGkResult] = useState([]);
+    const [engResult, setEngResult] = useState([]);
 
-    let gkMarks = [];
-    let engMarks = [];
-    result?.map(res => {
-        if (res.subject == 'general-knowledge') {
-            gkMarks.push(res.marks);
-        }
+    const [result, isLoading] = usePersonalResult(authUser?.email)
 
-        if (res.subject == 'english') {
-            engMarks.push(res.marks);
-        }
-    })
+    // console.log([...gkResult]);
+    // if (date == result.date) {
+    //     console.log('Date matched');
+    // }
 
-    const labels = result.map(res => res.date);
+    useEffect(() => {
+        result?.map(res => {
+            if (res.subject == 'general-knowledge') {
+                gkResult.push(res);
+            }
 
-    const data = {
-        labels,
+            if (res.subject == 'english') {
+                engResult.push(res);
+            }
+        })
+    }, [result])
+
+    // arr.reduce((a, v) => a + v, 0)
+
+
+    const generalKnowledge = {
+        labels: gkResult?.map(gk => gk.date),
         datasets: [
             {
-                label: 'General Knowledge',
-                // data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-                data: gkMarks,
+                label: `General Knowledge`,
+                data: gkResult?.map(gk => gk.marks),
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            },
+            }
+        ],
+    };
+
+
+    const english = {
+        labels: engResult?.map(eng => eng.date),
+        datasets: [
             {
                 label: 'English',
-                data: engMarks,
+                data: engResult?.map(eng => eng.marks),
                 borderColor: 'rgb(53, 162, 235)',
                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
             },
         ],
     };
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/result/${authUser?.email}`, {
-            method: 'GET',
-            headers: {
-                'content-type': 'application/json',
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        }).then(res => res.json()).then(data => {
-            console.log(data);
-            setResult(data);
-        })
-    }, [authUser])
-
-    if (loading) {
+    if (loading || isLoading) {
         return <Loading />
     }
 
     return (
-        <DefaultLayout>
-            <div>
-                <div className='w-1/2'>
-                    <Line options={options} data={data} />
+        <div className=' mt-6 mb-16 container mx-auto'>
+            <h3 className='text-2xl font-bold text-center mb-6'>Result Dashboard</h3>
+            <div className='flex gap-16'>
+                <div className='card shadow-xl w-1/2 px-8'>
+                    <Line options={options} data={generalKnowledge} />
+                </div>
+                <div className='card shadow-xl w-1/2 px-8'>
+                    <Line options={options} data={english} />
                 </div>
             </div>
-        </DefaultLayout>
+        </div>
     );
 };
 

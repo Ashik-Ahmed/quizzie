@@ -2,11 +2,11 @@ import React from 'react';
 
 const Stats = () => {
     return (
-        <div className='my-6'>
-            <div className=' text-center pt-4'>
+        <div className='my-12'>
+            <div className=' text-center'>
                 <h4 className='text-4xl font-bold border-b-4 border-gray-200 inline'>Our Statistics</h4>
             </div>
-            <div className="stats shadow w-5/6 flex justify-center mx-auto ">
+            <div className="stats shadow w-5/6 flex justify-center mx-auto mt-6">
 
                 <div className="stat">
                     <div className="stat-figure text-primary">

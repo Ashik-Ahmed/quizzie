@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 import RequireAuth from '../components/RequireAuth/RequireAuth';
 import DefaultLayout from '../DefaultLayout/DefaultLayout';
 
@@ -29,6 +30,8 @@ const setQuestion = () => {
             body: JSON.stringify(qsn)
         }).then(res => res.json()).then(data => {
             console.log(data);
+            toast.success('Question Added');
+            e.target.reset();
         })
 
         console.log(qsn);

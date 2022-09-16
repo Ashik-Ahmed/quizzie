@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 
 const usePersonalResult = (email) => {
 
-    const { data: result, isLoading, refetch } = useQuery('result', () => fetch(`http://localhost:5000/result/${email}`, {
+    const { data: result, isLoading, refetch } = useQuery('result', () => fetch(`https://quizzie.onrender.com/result/${email}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

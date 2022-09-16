@@ -44,7 +44,7 @@ const Quizes = () => {
             setSubject(e.target.subject.value);
 
             //API call to set the question paper loading from DB 
-            fetch(`http://localhost:5000/quiz/${e.target.subject.value}`, {
+            fetch(`https://quizzie.onrender.com/quiz/${e.target.subject.value}`, {
                 method: 'GET',
             }).then(res => res.json()).then(data => {
                 setQuestions(data);
@@ -104,7 +104,7 @@ const Quizes = () => {
         const userPoints = dbUser.points || 0;
         const points = { points: userPoints + 5 };
 
-        fetch(`http://localhost:5000/create-user/${authUser.email}`, {
+        fetch(`https://quizzie.onrender.com/create-user/${authUser.email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -133,7 +133,7 @@ const Quizes = () => {
         // console.log(result);
 
         //API call to insert result into DB
-        fetch('http://localhost:5000/insert-result', {
+        fetch('https://quizzie.onrender.com/insert-result', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',

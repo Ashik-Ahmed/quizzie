@@ -12,7 +12,7 @@ import DefaultLayout from '../DefaultLayout/DefaultLayout';
 
 
 
-const login = () => {
+const Login = () => {
 
     const router = useRouter();
 
@@ -158,4 +158,4 @@ const login = () => {
     );
 };
 
-export default login;
+export default Login;

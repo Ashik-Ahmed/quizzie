@@ -9,7 +9,7 @@ import DefaultLayout from '../DefaultLayout/DefaultLayout';
 import auth from '../firebase.init';
 import useToken from '../hooks/useToken';
 
-const signup = () => {
+const Signup = () => {
 
     const router = useRouter();
 
@@ -33,7 +33,7 @@ const signup = () => {
 
     //create database user
     const createDBUser = (name, email) => {
-        fetch(`http://localhost:5000/create-user/${email}`, {
+        fetch(`https://quizzie.onrender.com/create-user/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -229,4 +229,4 @@ const signup = () => {
     );
 };
 
-export default signup;
+export default Signup;

@@ -21,7 +21,7 @@ const setQuestion = () => {
             answer
         }
 
-        fetch(`http://localhost:5000/insert-question/${subject}`, {
+        fetch(`https://quizzie.onrender.com/insert-question/${subject}`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

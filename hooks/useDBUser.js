@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from 'react-query';
 
 const useDBUser = (email) => {
-    const { data: dbUser, isLoading, refetch } = useQuery('dbUser', () => fetch(`http://localhost:5000/user/${email}`, {
+    const { data: dbUser, isLoading, refetch } = useQuery('dbUser', () => fetch(`https://quizzie.onrender.com/user/${email}`, {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

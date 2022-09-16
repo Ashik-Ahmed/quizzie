@@ -1,3 +1,5 @@
+# Quizzie - Online Exam center
+
 To experience the application live [`click here`](https://quizzie-d2205.web.app/).
 
 ## Application features

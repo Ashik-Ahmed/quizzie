@@ -5,7 +5,7 @@ import RequireAuth from '../components/RequireAuth/RequireAuth';
 const takeExam = () => {
     return (
         <RequireAuth>
-            <div>
+            <div className='bg-gray-200'>
                 <Quizes />
             </div>
         </RequireAuth>

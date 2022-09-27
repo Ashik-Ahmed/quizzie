@@ -155,7 +155,7 @@ const Quizes = () => {
 
 
     return (
-        <div className=' bg-gray-200'>
+        <div className='min-h-fit bg-gray-200'>
             <form onSubmit={handleStart} className='flex items-center justify-center gap-4' style={{ 'height': '30vh' }}>
                 <p className='text-xl font-bold'>Please Select Subject:</p>
 

@@ -16,9 +16,9 @@ const Services = () => {
             <div className='text-center '>
                 <h3 className='text-4xl font-bold border-b-4 border-gray-200 inline'>Available Exams</h3>
             </div>
-            <div className='container  mx-auto grid grid-cols-3 gap-12 my-4 px-16'>
+            <div className='container  mx-auto md:grid grid-cols-3 gap-12 my-4 px-16 space-y-4'>
                 <div className="card card-compact bg-base-100 shadow-xl">
-                    <figure className='h-2/3 border-b-8 border-primary'><img src='https://i.ibb.co/hY3kKJY/general-knowledge.png' alt="Shoes" /></figure>
+                    <figure className='h-2/3 border-b-8 border-primary'><img src='https://i.ibb.co/hY3kKJY/general-knowledge.png' alt="general knowledge" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">General Knowledge</h2>
                         <p>Total Questions: 21543</p>
@@ -29,7 +29,7 @@ const Services = () => {
                 </div>
 
                 <div className="card card-compact bg-base-100 shadow-xl">
-                    <figure className='h-2/3 border-b-8 border-primary'><img src='https://i.ibb.co/S6TRdq2/english-grammar.jpg' alt="Shoes" /></figure>
+                    <figure className='h-2/3 border-b-8 border-primary'><img src='https://i.ibb.co/S6TRdq2/english-grammar.jpg' alt="english grammar" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">English Grammar</h2>
                         <p>Total Questions: 21543</p>
@@ -40,7 +40,7 @@ const Services = () => {
                 </div>
 
                 <div className="card card-compact bg-base-100 shadow-xl">
-                    <figure className='h-2/3'><img src='https://i.ibb.co/YDq3CCh/computer.jpg' alt="Shoes" /></figure>
+                    <figure className='h-2/3 border-b-8 border-primary'><img src='https://i.ibb.co/3YS9vDY/computer.jpg' alt="computer fundamental" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">Computer Fundamental</h2>
                         <p>Total Questions: 21543</p>
@@ -51,7 +51,7 @@ const Services = () => {
                 </div>
 
                 <div className="card card-compact bg-base-100 shadow-xl">
-                    <figure className='h-2/3 border-b-8 border-primary'><img src='https://i.ibb.co/vdXftd4/math.jpg' alt="Shoes" /></figure>
+                    <figure className='h-2/3 border-b-8 border-primary'><img src='https://i.ibb.co/vdXftd4/math.jpg' alt="mathematics" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">Mathematics</h2>
                         <p>Total Questions: 21543</p>
@@ -62,7 +62,7 @@ const Services = () => {
                 </div>
 
                 <div className="card card-compact bg-base-100 shadow-xl">
-                    <figure className='h-2/3 border-b-8 border-primary'><img src='https://i.ibb.co/ZmwtXrx/science.png' alt="Shoes" /></figure>
+                    <figure className='h-2/3 border-b-8 border-primary'><img src='https://i.ibb.co/ZmwtXrx/science.png' alt="science" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">Science</h2>
                         <p>Total Questions: 21543</p>
@@ -73,7 +73,7 @@ const Services = () => {
                 </div>
 
                 <div className="card card-compact bg-base-100 shadow-xl">
-                    <figure className='h-2/3 border-b-8 border-primary'><img src='https://i.ibb.co/nwjqktd/history.jpg' alt="Shoes" /></figure>
+                    <figure className='h-2/3 border-b-8 border-primary'><img src='https://i.ibb.co/nwjqktd/history.jpg' alt="history" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">History</h2>
                         <p>Total Questions: 21543</p>

@@ -51,7 +51,7 @@ const Quizes = () => {
                 setExamStart(true);
                 setTimeout(() => {
                     setExamStart(false);
-                }, 20000);
+                }, 60000);
 
                 toast.info('Time Left!',
                     // (function () {
@@ -66,7 +66,7 @@ const Quizes = () => {
                     // })(),
                     {
                         position: "top-right",
-                        autoClose: examStart || 20000,
+                        autoClose: examStart || 60000,
                         hideProgressBar: false,
                         closeOnClick: false,
                         pauseOnHover: false,
@@ -156,11 +156,11 @@ const Quizes = () => {
 
     return (
         <div className='min-h-fit bg-gray-200'>
-            <form onSubmit={handleStart} className='flex items-center justify-center gap-4' style={{ 'height': '30vh' }}>
-                <p className='text-xl font-bold'>Please Select Subject:</p>
+            <form onSubmit={handleStart} className='md:flex flex-col items-center justify-center gap-4 p-4 space-y-2 md:min-h-[70vh]' >
+                <p className='text-xl font-bold text-center'>Please Select Subject:</p>
 
-                <div>
-                    <select name='subject' className="select select-bordered w-full max-w-xs">
+                <div className='text-center'>
+                    <select name='subject' className="select select-bordered w-56">
                         <option disabled selected>Select Subject</option>
                         <option disabled={gkAvailable ? false : true} value='general-knowledge'>General Knowledge</option>
                         <option disabled={engAvailable ? false : true} value='english'>English Grammar</option>
@@ -168,7 +168,9 @@ const Quizes = () => {
                     <p className='text-red-500 text-xs'>{error}</p>
                 </div>
 
-                <button type='submit' className='btn btn-primary' disabled={questions}>Start Quiz</button>
+                <div className='w-full text-center'>
+                    <button type='submit' className='btn btn-primary w-56' disabled={examStart}>Start Quiz</button>
+                </div>
             </form>
             {(!gkAvailable && !engAvailable) &&
                 <div className='text-2xl font-semibold text-primary text-center pb-40'>
@@ -178,11 +180,11 @@ const Quizes = () => {
             }
             {
                 examStart &&
-                <form onSubmit={handlePaperSubmit} className='container mx-auto p-4 bg-gray-200'>
+                <form onSubmit={handlePaperSubmit} className='container mx-auto p-4 bg-white'>
 
                     {
                         questions && <>
-                            <div className='w-2/3 border-4 mx-auto mb-2'>
+                            <div className='w-2/3 mx-auto mb-2'>
                                 <h3 className='text-2xl font-bold text-center'>Question Paper</h3>
                                 <p className='font-bold'>Total Marks: {questions.length}</p>
                             </div>

@@ -2,8 +2,13 @@
 
 To experience the application live [`click here`](https://quizzie-d2205.web.app/).
 
-## Application features
+###Login Credentials
+-----------------------------
+*Email: test@gmail.com
+*Password: test123
 
+## Application features
+-----------------------------
 * Login and Signup
 * Registered user can take MCQ exam on different topics
 * Users cannot take multiple exams on the same topic on a single day
@@ -14,5 +19,5 @@ To experience the application live [`click here`](https://quizzie-d2205.web.app/
 
 
 ### Technology used for Development
-
+------------------------------------
 * React.js, Next.js, Tailwind CSS, Node.js, Express.js, REST API, JSON Web Token (JWT).

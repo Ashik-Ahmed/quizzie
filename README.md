@@ -2,10 +2,10 @@
 
 To experience the application live [`click here`](https://quizzie-d2205.web.app/).
 
-###Login Credentials
+### Login Credentials
 -----------------------------
-*Email: test@gmail.com
-*Password: test123
+* Email: test@gmail.com \n
+* Password: test123
 
 ## Application features
 -----------------------------
